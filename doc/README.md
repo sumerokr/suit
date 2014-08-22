@@ -1,16 +1,16 @@
-# SUIT CSS documentation
+# SUIT CSS документация
 
-**Table of contents**
+**Содержание**
 
-* [Design principles](design-principles.md)
-* [Naming conventions](naming-conventions.md)
-  * [u-utilityName](naming-conventions.md#u-utilityName)
-  * [ComponentName](naming-conventions.md#ComponentName)
-  * [ComponentName--modifierName](naming-conventions.md#ComponentName--modifierName)
-  * [ComponentName-descendentName](naming-conventions.md#ComponentName-descendentName)
-  * [ComponentName.is-stateOfComponent](naming-conventions.md#is-stateOfComponent)
-* [Utilities](utilities.md)
-* [Components](components.md)
+* [Принципы разработки](design-principles.md)
+* [Соглашения о наименовании](naming-conventions.md)
+  * [u-имяУтилиты](naming-conventions.md#u-utilityName)
+  * [ИмяКомпонента](naming-conventions.md#ComponentName)
+  * [ИмяКомпонента--имяМодификатора](naming-conventions.md#ComponentName--modifierName)
+  * [ИмяКомпонента-имяПотомка](naming-conventions.md#ComponentName-descendentName)
+  * [ИмяКомпонента.is-состояниеКомпонента](naming-conventions.md#is-stateOfComponent)
+* [Утилиты](utilities.md)
+* [Компоненты](components.md)
 * [API](api.md)
 
-[Code style](STYLE.md)
+[Стиль кода](STYLE.md)

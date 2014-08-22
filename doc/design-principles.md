@@ -1,78 +1,76 @@
-# SUIT CSS design principles
+# SUIT CSS принципы разработки
 
-SUIT CSS is a methodology focused on improving the CSS authoring experience for
-component-based development.
+SUIT CSS - это методология, сфокусированная на улучшении поддержки CSS кода для компонентно-ориентированной разработки.
 
-A component-based system allows for the implementation and composition of
-loosely coupled, independent units into well-defined composite objects.
-Components are encapsulated but are able to interoperate via interfaces/events.
+Компонентно-ориентированная система открыта для встраивания и соеднинения
+слабо связанных, независимых едениц в хорошо организованный цельный объект.
+Компоненты инкапсулированы, но позволяют взаимодействовать с собой через интерфейсы/события.
 
-1. [Modularity](#modularity)
-2. [Cohesion](#cohesion)
-3. [Composition and configuration](#composition)
-4. [Loose coupling](#coupling)
-5. [Soft encapsulation](#encapsulation)
-6. [Documentation](#documentation)
+1. [Модульность](#modularity)
+2. [Сплоченность](#cohesion)
+3. [Соединение и настройка](#composition)
+4. [Слабая связанность](#coupling)
+5. [Мягкая инкапсуляция](#encapsulation)
+6. [Документация](#documentation)
 
 <a name="modularity"></a>
-## Modularity
+## Модульность
 
-Each component should have a single focus and contain everything necessary to
-realise a specific part of the UI. Components may contain HTML,
-CSS, JavaScript, and associated assets without making assumptions about the
-outer rendering context.
+Каждый компонент должен быть сфокусирован на единственной цели и состоять из
+всего необходимого для реализации специфичной части пользовательского интерфейса.
+Компоненты могут состоять из HTML, CSS, JavaScript и прочих файлов, при этом
+не имея представления о контенте, в котором им предстоит располагаться.
 
 <a name="cohesion"></a>
-## Cohesion
+## Сплоченность
 
-The functionality and presentation defined by a component must be semantically
-related. Components do not have direct influence over each other.
+Функциональность и представление определенные компонентом должна быть
+семантически связаны. Компоненты не имеют прямого влияния друг на друга.
 
 <a name="composition"></a>
-## Composable and configurable
+## Соединение и настройка
 
-Composability is concerned with the inter-relationships of components.
-Composable systems have components that can be assembled in various
-combinations, as required.
+При соединении компонентов, важно уделять внимание их взаимосвязям.
+Сборная система содержит компоненты, которые могут быть собраны в различных вариациях,
+по необходимости.
 
-Configuration is done via interfaces that are provided and used by components.
+Настройка и взаимодействие осуществляется через интерфейсы/события предоставляемые компонентом.
 
 <a name="coupling"></a>
-## Loose coupling
+## Слабая связанность
 
-Components should not directly modify the presentation or behaviour of their
-dependencies. Relying on interfaces and events for inter-component
-communication results in a loose coupling.
+Компоненты не должны напрямую модифицировать представление, или поведение
+своих зависимостей. Полагаясь на интерфейсы/события для внутреннего взаимодействия,
+можно добиться меньших взаимосвязей.
 
-Attempting to reuse too much code across components can increase their
-coupling. Isolation is more important than avoiding the repetition of
-superficially similar code.
+Попытка переиспользовать слишком большое количество кода между компонентами
+может увеличить их взаимосвязанность. Изоляция более важна, чем избегание
+повторения похожего кода.
 
 <a name="encapsulation"></a>
-## Soft encapsulation
+## Мягкая инкапсуляция
 
-The implementation of a component should not be exposed to other components.
-For example: your component should not leak styles into the HTML tree fragments
-of other components; a component's HTML should not be directly included in the
-HTML for another component.
+Внедрение компонента на страницу не должно отразиться на других компонентах.
+Например: внедряемый компонент не должен распространять свои стили по HTML дереву
+других компонентов. HTML фрагмент компонента не может быть позаимствован
+для переиспользования в другом компоненте.
 
-Complexity is a significant problem for large, adaptive applications. The more
-you can reduce the entanglement of your components, the easier it is to reason
-about the system.
+Комплексность является значительной проблемой для больших, адаптивных приложений.
+Чем больше вы можете снизить связанность компонентов, тем легче восприятией всей системы.
 
 <a name="documentation"></a>
-## Documentation
+## Документация
 
-Write small, independent components that are well documented to describe how
-the components should be used, and why specific CSS properties are needed in
-the implementation. Do not assume that CSS is self-documenting.
+Пишите маленькие, независимые компоненты, которые хорошо документированы в плане
+их использования, объясняя, почему были использованы спецефичные CSS свойства.
+Не рассчитывайте на то, что CSS само-документируемы.
 
-## Related reading
+## Ссылки по теме (EN)
 
-* [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
-* [Cohesion](http://en.wikipedia.org/wiki/Cohesion_(computer_science))
-* [Component-based software engineering](http://en.wikipedia.org/wiki/Component-based_software_engineering)
-* [Encapsulation](http://en.wikipedia.org/wiki/Encapsulation_(object-oriented_programming))
-* [Functional programming](http://en.wikipedia.org/wiki/Functional_programming)
-* [Single responsibility principle](http://en.wikipedia.org/wiki/Single_responsibility_principle)
-* [SOLID CSS](http://blog.millermedeiros.com/solid-css/)
+* [О html семантике для front-end архитектуры](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
+* [Сплоченность](http://en.wikipedia.org/wiki/Cohesion_(computer_science))
+* [Компонентно-ориентированная разработка](http://en.wikipedia.org/wiki/Component-based_software_engineering)
+* [Инкапсуляция](http://en.wikipedia.org/wiki/Encapsulation_(object-oriented_programming))
+* [Функциональное программирование](http://en.wikipedia.org/wiki/Functional_programming)
+* [Принцип единственной обязанности](http://en.wikipedia.org/wiki/Single_responsibility_principle)
+* [Надежный CSS](http://blog.millermedeiros.com/solid-css/)
