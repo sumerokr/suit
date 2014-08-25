@@ -1,11 +1,12 @@
-# SUIT CSS components
+# SUIT CSS компоненты
 
-SUIT CSS is designed for styling reusable, composable components. The benefits
-are most apparent in a system that considers components to be the building
-blocks of your application.
+SUIT CSS разработан для стилизования переиспользуемых компонентов. Преимущества
+наиболее очевидны в системе, которая строится исходя из того, что компоненты
+являются основными строительными элементами.
 
-Think of components as custom elements that enclose specific semantics,
-styling, and behaviour. For example, this `Photo` component and configuration:
+Можно рассуждать о компоненте, как о произвольном элементе, содержащем в себе
+специфичную семантику, стилевое оформление и логику поведения. Например,
+подобный компонент `Фото` и его конфигурация:
 
 ```html
 <Photo src="photo.jpg" size="large" crop="circle">
@@ -13,7 +14,7 @@ styling, and behaviour. For example, this `Photo` component and configuration:
 </Photo>
 ```
 
-could yield the following HTML:
+могут быть представлены следующим HTML кодом:
 
 ```html
 <article class="Photo Photo--sizeLarge">
@@ -29,24 +30,21 @@ could yield the following HTML:
 </article>
 ```
 
-SUIT CSS helps to partially isolate the CSS used in the `Photo` component's
-implementation. In doing so, it makes styling simpler by reducing the amount of
-styling entanglement between components, and prevents styles from leaking
-outside the component.
+SUIT CSS помогает частично изолировать CSS, используемый в реализации компонента
+`Photo`. Поступая подобным образом, можно добиться более простой стилизации,
+за счет снижения количества стилевых взаимосвязей между компонентами и
+предотвратить распространение стилей вне компонента.
 
-(Read about SUIT CSS's [naming conventions](naming-conventions.md).)
+(Подробнее о SUIT CSS [системе наименования](naming-conventions.md).)
 
-## Component scope
+## Область видимости компонента
 
-The component's core class name (e.g., `ComponentName`) reserves a namespace
-that can only be used by that component. This can be enforced using with tools
-(e.g. [suitcss-preprocessor](https://github.com/suitcss/preprocessor) or
-[rework-suit-conformance](https://github.com/suitcss/rework-suit-conformance)
-in your build process.
+Ключевое имя класса компонента (т.е. `ComponentName`) является, по сути,
+пространством имен, которое может быть использовано только внутри компонента.
 
-**All selectors in a component file must start with the component's
-namespace**. For example, a component called `MyComponent` could have the
-following CSS, where every selector starts with the string `MyComponent`.
+**Все селекторы в файле описания компонента должны начинаться с имени
+(пространства имен) компонента.** Например, компонент по имени `MyComponent`
+должен иметь следующий CSS, где каждый селектор начинается с `MyComponent`.
 
 ```css
 /** @define MyComponent */
@@ -59,7 +57,8 @@ following CSS, where every selector starts with the string `MyComponent`.
 .MyComponent-time { /* ... */ }
 ```
 
-Each class provides a hook to style specific elements within the HTML definition.
+Каждый компонент предоставляет возможность для стилизации своих специфичных
+элементов в HTML определении.
 
 ```html
 <article class="MyComponent u-cf">
@@ -72,60 +71,44 @@ Each class provides a hook to style specific elements within the HTML definition
 </div>
 ```
 
-Like classes, variables must also be scoped to their component by including the
-component name in the variable name:
+Следует избегать переплетения, или спутывания компонентов, даже если это
+означает, что код станет не настолько "чистым", каким должен быть, по вашему
+мнению. Изоляция предотвращает комплексную сложность и является важной частью
+легкой переиспользуемости.
 
-```css
-/** @define MyComponent */
+## Один шаблон - один компонент
 
-:root {
-  --MyComponent-border-width: 5px;
-}
+**Каждый компонент должен реализовывать одну часть пользовательского
+интерфейса**. Не нужно пытаться сделать слишком многое.
 
-.MyComponent {
-  border-width: var(--MyComponent-border-width);
-  /* ... */
-}
-```
+**Каждый компонент должен иметь отдельный CSS файл. В идеале, все файлы
+компонента должны быть сгрупированы в одной отведенной ему папке.
 
-This allows a theme to override the defaults if desired.
+## Особенности документации компонентов
 
-Avoid coupling or entangling components, even if that means the code is not as
-DRY as you think it should be. Isolation prevents avoidable complexity and is
-an important part of robust reuse.
+Компоненты должны документировать свою реализацию. CSS комментарии компонента
+должны быть результатом поиска ответов на следующие вопросы:
 
-## One pattern, one component
+* Каково предназначение компонента?
+* Для чего существуют его модификаторы и состояния?
+* Почему были использованы специфичные, неочевидные свойста?
+* Каковы известные ограничения?
 
-**Each component should implement a single part of the UI**. Don't try to do
-too much.
+## Адаптация ко внешнему контексту
 
-**Each component should have a dedicated CSS file**. Ideally your component's
-files are grouped together in a dedicated directory.
+**Большинство компонентов не должны устанавливать собственную ширину, отступы
+и позиционирование.** Создавая компонент с авто-шириной, или с инлайновой
+моделью, можно достичь лучшей адаптации к размерам внешнего контекста.
 
-## Documenting implementation details
+## Стилизация зависимостей
 
-Components must document their implementation. The CSS comments for a component
-should seek to answer the following questions:
+**Компонент не должен знать о реализации компонентов, от которых он зависим.**
+Позиционирование и представление зависимостей должно настраиваться с помощью
+интерфейсов ими предоставляемых.
 
-* What is the intended presentation?
-* What are the modifiers and states?
-* What are the reasons for specific, opaque property values.
-* What are the known limitations?
-
-## Adapting to ancestral context
-
-**Most components should not set their own width, margin, and positioning.** By
-authoring a component to be full-width or inline, it can better adapt to the
-dimensions of an ancestral context.
-
-## Styling dependencies
-
-**A component should not know about the implementation of its dependencies**.
-The appearance of dependencies must be configured using the interface they provide.
-
-Controlling dimensions, margins, position, and inheritable styles of a
-component can be done _indirectly_. Add a class to its root element, or wrap
-it in another element.
+Контролирование размеров, отступов, позиционирования и наследуемых свойств
+компонентов должно осуществляться _косвенно_. Путем добавления классов для их
+корневого элемента, или оборачиванием в другой элемент.
 
 ```css
 /* Excerpt */
