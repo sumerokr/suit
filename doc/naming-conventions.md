@@ -1,14 +1,15 @@
-# SUIT CSS naming conventions
+# SUIT CSS соглашения о наименовании
 
-SUIT CSS relies on _structured class names_ and _meaningful hyphens_ (i.e., not
-using hyphens merely to separate words). This helps to work around the current
-limits of applying CSS to the DOM (i.e., the lack of style encapsulation), and
-to better communicate the relationships between classes.
+SUIT CSS полагается на _структурированные имена классов_ и _смысловые дефисы_
+(т.е. дефисы используются не для того, чтобы просто разделять слова). Это
+помогает действовать в пределах ограничений применения CSS стилей к DOM-у
+(т.е. проблем с изоляцией стилей), и позволяет лучше наладить взаимодействие
+между классами.
 
-The primary architectural division is between **[utilities](utilities.md)** and
-**[components](components.md)**.
+Основное архитектурное разделение выстраивается между
+**[утилитами](utilities.md)** и **[компонентами](components.md)**.
 
-**Table of contents**
+**Содержание**
 
 * [u-utilityName](#u-utilityName)
 * [ComponentName](#ComponentName)
@@ -16,18 +17,19 @@ The primary architectural division is between **[utilities](utilities.md)** and
 * [ComponentName-descendantName](#ComponentName-descendantName)
 * [ComponentName.is-stateOfComponent](#is-stateOfComponent)
 
-## [Utilities](utilities.md)
+## [Утилиты](utilities.md)
 
-Low-level structural and positional traits. Utilities can be applied directly
-to any element within a component.
+Низкоуровневые структурные и позиционные стили. Утилиты могут применяться
+напрямую к любому элементу, в том числе внутри компонента.
 
-Syntax: `u-[sm|md|lg-]<utilityName>`
+Синтаксис: `u-[sm|md|lg-]<utilityName>`
 
 <a name="u-utilityName"></a>
 ### u-utilityName
 
-Utilities must use a camel case name. What follows is an example of how various
-utilities can be used to create a simple structure within a component.
+Утилиты должны использовать имена в стиле camel case. Это отражено в примере,
+демонстрирующем, как различные утилиты могут быть использованы для создания
+простой структуры внутри компонента.
 
 ```html
 <div class="u-cf">
@@ -40,45 +42,46 @@ utilities can be used to create a simple structure within a component.
 </div>
 ```
 
-### Responsive utilities
+### Отзывчивые утилиты
 
-Certain utilities have responsive variants using the patterns: `u-sm-<name>`,
-`u-md-<name>`, and `u-lg-<name>` for small, medium, and large Media Query
-breakpoints.
+Определенные утилиты имеют отзывчивые варианты используя шаблон написания:
+`u-sm-<name>`, `u-md-<name>`, и `u-lg-<name>` для малых, средних и больших точек
+разделения медиа-выражений.
 
 
-## [Components](components.md)
+## [Компоненты](components.md)
 
-The CSS responsible for component-specific styling.
+CSS достаточно гибкие для компонентно-специфичного стилизования.
 
-Syntax: `[<namespace>-]<ComponentName>[--modifierName|-descendentName]`
+Синтаксис: `[<namespace>-]<ComponentName>[--modifierName|-descendentName]`
 
-This has several benefits when reading and writing HTML and CSS:
+Такой подход имеет несколько преимуществ для чтения и написания HTML и CSS:
 
-* It helps to distinguish between the classes for the root of the component,
-  descendent elements, and modifications.
-* It keeps the specificity of selectors low.
-* It helps to decouple presentation semantics from document semantics.
+* Помогает различать классы для корневого элемента компонента, его потомков
+и модификаторов.
+* Позволяет поддерживать низкую специфику селекторов.
+* Помогает отделять семантику представления от семантики документа.
 
-### namespace (optional)
+### Пространство имен (опционально)
 
-If necessary, components can be prefixed with a namespace. For example, you may
-wish to avoid the potential for collisions between libraries and your custom
-components by prefixing all your components with a namespace.
+Если есть необходимость, компоненту может быть добавлено пространство имен
+в виде префикса. Например, вам захочется избежать потенциального конфликта между
+стилями сторонних библиотек и собственных компонентов путем добавления префиксов
+с пространствами имен.
 
 ```css
 .twt-Button { /* … */ }
 .twt-Tabs { /* … */ }
 ```
 
-This makes it clear, when reading the HTML, which components are part of your
-library.
+При чтении подобных классов, становится понятно, какой компонент является
+частью вашей библиотеки.
 
 <a name="ComponentName"></a>
 ### ComponentName
 
-The component's name must be written in pascal case. Nothing else in the
-HTML/CSS uses pascal case.
+Имя компонента должно быть написано в стиле pascal case. Ничто другое в HTML
+и CSS не должно быть написано в стиле pascal case.
 
 ```css
 .MyComponent { /* … */ }
@@ -93,11 +96,11 @@ HTML/CSS uses pascal case.
 <a name="ComponentName--modifierName"></a>
 ### ComponentName--modifierName
 
-A component modifier is a class that modifies the presentation of the base
-component in some form (e.g., for a certain configuration of the component).
-Modifier names must be written in camel case and be separated from the
-component name by two hyphens. The class should be included in the HTML _in
-addition_ to the base component class.
+Для обозначения модификатора компонента используется класс, меняющий, некоторым
+образом, представление базового компонента (т.е. для определенных конфигураций
+компонента). Имя модификатора должно быть написано в стиле camel case
+и быть отделенно от имени компонента двумя дефисами. Класс должен быть
+добавлен в HTML путем _дополнения_ к основному классу компонента.
 
 ```css
 /* Core button */
@@ -113,10 +116,10 @@ addition_ to the base component class.
 <a name="ComponentName-descendentName"></a>
 ### ComponentName-descendentName
 
-A component descendent is a class that is attached to a descendent node of a
-component. It's responsible for applying presentation directly to the
-descendent on behalf of a particular component. Descendent names must be
-written in camel case.
+Для обозначения потомка компонента используется класс, добавляемый к дочерним
+HTML элементам компонента. Это позволяет напрямую стилизовать потомков
+принадлежащих конкретному компоненту. Имена потомков должны быть написаны
+в стиле camel case.
 
 ```html
 <article class="Tweet">
@@ -133,13 +136,14 @@ written in camel case.
 <a name="is-stateOfComponent"></a>
 ### ComponentName.is-stateOfComponent
 
-Use `is-stateName` to reflect changes to a component's state. The state name
-must be camel case. **Never style these classes directly; they should always be
-used as an adjoining class.**
+Используйте `is-stateName` чтобы отразить состояние компонента. Имя состояния
+должно быть написано в стиле camel case. **Никогда не применяйте стили напрямую
+к этим классам; Они всегда должны быть использованы путем добавления к основным
+классам.
 
-This means that the same state names can be used in multiple contexts, but
-every component must define its own styles for the state (as they are scoped to
-the component).
+Это означает, что состояния с одинаковыми именами могут быть использованы в
+различном контексте, но каждый компонент определяет свои собственные стили для
+этих состояний (соблюдая ограниченную видимость в пределах компонента).
 
 ```css
 .Tweet { /* … */ }
