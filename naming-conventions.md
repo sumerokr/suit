@@ -33,12 +33,12 @@ SUIT CSS полагается на _структурированные имен�
 
 ```html
 <div class="u-cf">
-  <a class="u-floatLeft" href="{{url}}">
-    <img class="u-block" src="{{src}}" alt="">
-  </a>
-  <p class="u-sizeFill u-textBreak">
-    …
-  </p>
+    <a class="u-floatLeft" href="{{url}}">
+        <img class="u-block" src="{{src}}" alt="">
+    </a>
+    <p class="u-sizeFill u-textBreak">
+        …
+    </p>
 </div>
 ```
 
@@ -89,7 +89,7 @@ CSS достаточно гибкие для компонентно-специф
 
 ```html
 <article class="MyComponent">
-  …
+    …
 </article>
 ```
 
@@ -123,13 +123,13 @@ HTML элементам компонента. Это позволяет напр
 
 ```html
 <article class="Tweet">
-  <header class="Tweet-header">
+    <header class="Tweet-header">
     <img class="Tweet-avatar" src="{{src}}" alt="{{alt}}">
-    …
-  </header>
-  <div class="Tweet-bodyText">
-    …
-  </div>
+        …
+    </header>
+    <div class="Tweet-bodyText">
+        …
+    </div>
 </article>
 ```
 
@@ -152,6 +152,6 @@ HTML элементам компонента. Это позволяет напр
 
 ```html
 <article class="Tweet is-expanded">
-  …
+    …
 </article>
 ```

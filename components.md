@@ -10,7 +10,7 @@ SUIT CSS разработан для стилизования переиспол
 
 ```html
 <Photo src="photo.jpg" size="large" crop="circle">
-  A photo of <a href="/barackobama">Barack Obama</a> in the Whitehouse.
+    A photo of <a href="/barackobama">Barack Obama</a> in the Whitehouse.
 </Photo>
 ```
 
@@ -18,15 +18,15 @@ SUIT CSS разработан для стилизования переиспол
 
 ```html
 <article class="Photo Photo--sizeLarge">
-  <a class="Photo-crop Photo-crop--circle" href="photo.jpg">
-    <span class="Photo-icon">
-      <span class="Icon Icon--zoom"></span>
-    </span>
-    <img class="Photo-img u-block" src="photo.jpg" alt="">
-  </a>
-  <div class="Photo-caption u-textBreak">
-    A photo of <a href="/barackobama">Barack Obama</a> in the Whitehouse.
-  </div>
+    <a class="Photo-crop Photo-crop--circle" href="photo.jpg">
+        <span class="Photo-icon">
+            <span class="Icon Icon--zoom"></span>
+        </span>
+        <img class="Photo-img u-block" src="photo.jpg" alt="">
+    </a>
+    <div class="Photo-caption u-textBreak">
+        A photo of <a href="/barackobama">Barack Obama</a> in the Whitehouse.
+    </div>
 </article>
 ```
 
@@ -62,12 +62,12 @@ SUIT CSS помогает частично изолировать CSS, испо�
 
 ```html
 <article class="MyComponent u-cf">
-  <h1 class="MyComponent-title">{{title}}</h1>
-  <img class="MyComponent-image" src="{{src}}" alt="">
-  <p class="MyComponent-text">
-    <span class="MyComponent-time">{{time}}</span>
-    {{text}}
-  </p>
+    <h1 class="MyComponent-title">{{title}}</h1>
+    <img class="MyComponent-image" src="{{src}}" alt="">
+    <p class="MyComponent-text">
+        <span class="MyComponent-time">{{time}}</span>
+        {{text}}
+    </p>
 </div>
 ```
 
@@ -114,32 +114,30 @@ SUIT CSS помогает частично изолировать CSS, испо�
 /* Excerpt */
 
 .Excerpt {
-  /* ... */
+    /* ... */
 }
 
 /* Attaches to a nested component */
 
 .Excerpt-button {
-  display: inline-block;
-  margin-top: 20px;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 /* Wraps a nested component */
 
 .Excerpt-wrapButton {
-  display: inline-block;
-  margin-top: 20px;
+    display: inline-block;
+    margin-top: 20px;
 }
 ```
 
 ```html
 <article class="Excerpt u-cf">
-  {{! other implementation details }}
-
-  <read-button class="Excerpt-button">Read more</read-button>
-
-  <div class="Excerpt-wrapButton">
-    <read-button>Read more</read-button>
-  </div>
+    {{! other implementation details }}
+    <read-button class="Excerpt-button">Read more</read-button>
+    <div class="Excerpt-wrapButton">
+        <read-button>Read more</read-button>
+    </div>
 </article>
 ```
