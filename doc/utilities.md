@@ -1,17 +1,18 @@
-# SUIT CSS utilities
+# SUIT CSS утилиты
 
-Utility classes map to fixed, low-level, structural and positional traits.
-These classes can be used in a component's HTML. Because utilities are so
-focused, they will generally use `!important` to ensure their styles are always
-applied.
+Классы утилит нацелены на  фиксированные, низкоуровневые, структурные и
+позиционные стили. Такие классы могут быть использованы в компонентах. Поскольку
+утилиты столь сфокусированы, их стили могут использовать `!important`, чтобы
+гарантировать выполнение свой функции.
 
-(Read about SUIT CSS's [naming conventions](naming-conventions.md).)
+(Подробнее о SUIT CSS [системе наименования](naming-conventions.md).)
 
-## Why to use utilities
+## Для чего использовать
 
-Certain CSS properties and patterns are used frequently. For example: floats,
-containing floats, vertical alignment, text truncation. Relying on utilities
-can help to reduce repetition and provide consistent implementations.
+Определенные CSS свойства и шаблоны используются особенно часто. Например:
+обтекания (float), их контейнеры, вертикальное выравнивание, обрезание текста.
+Полагаясь на утилиты, можно уменьшить дублирование и получить более
+единообразную реализацию.
 
 ```html
 <div class="u-cf">
@@ -22,16 +23,18 @@ can help to reduce repetition and provide consistent implementations.
 </div>
 ```
 
-Some utilities apply only a single declaration, so why not use inline styles?
-Even here, small utilities are preferred because their values can be
-preprocessed (e.g., generating RTL style sheets) or adjusted to viewport
-dimensions. The scope of styles not contained in components can be tightly
-defined, and code is a little easier to read.
+Некоторые утилиты реализуют лишь единственное CSS свойство, так почему бы не
+использовать встроенные стили (style="")? Даже в этих случаях, использование
+маленьких утилит предпочтительнее, потому что их значения могут быть обработаны
+препроцессорами (-moz, -webkit с помощью LESS, SASS, и т.п.), либо настроены
+в зависимости от разрешения области просмотра. Подобные стили, определенные
+вне компонентов могут быть очень четско обозначены, облегчая чтение кода.
 
-## How to use utilities
+## Использование утилит
 
-Utilities can be added to any element; multiple utilities can be used together;
-and utilities can be used alongside component classes.
+Утилиты могут быть добавлены к любому элементу; несколько утилит могут быть
+использованы вместе; утилиты могут использоваться совместно с классами
+компонентов.
 
 ```html
 <div class="Tweet u-cf">
@@ -44,21 +47,21 @@ and utilities can be used alongside component classes.
 </div>
 ```
 
-Utilities are grouped by type. The names of utilities with similar concerns
-usually start with a common string, e.g., `u-textCenter`, `u-textTruncate`;
-`u-linkClean`, `u-linkBlock`.
+Утилиты сгруппированы по типу. Имена утилит со схожими целями, обычно начинаются
+с типичного слова, например: `u-textCenter`, `u-textTruncate`;`u-linkClean`,
+`u-linkBlock`.
 
-Any classes with terse names, e.g., `u-cf` and `u-nbfc`, are either
-particularly abstract or very commonly used utilities with otherwise
-excessively long names. For example, the `u-cf` utility is used to "contain
-floats" without clipping any overflow; the `u-nbfc` utility is used to create a
-"new block formatting context".
+Любые классы с коротким именем, т.е., `u-cf` и `u-nbfc`, либо очень абстрактны,
+либо являются очень часто используемыми, и их полные имена были бы слишком
+длинны. Например, `u-cf` утилита используется в качестве контейнера для хранения
+float блоков без применения свойства overflow; `u-nbfc` утилита используется для
+создания "нового блочного контекста форматирования".
 
-Make sure to read the documentation within the CSS files of utilities. It will
-contain information about utility classes and their implementations.
+Убедитесь, что прочитали инструкцию внутри CSS файлоа утилиты. Она содержит
+информацию о классах утилит и их реализации.
 
-## Modifiying utilities
+## Модификация утилит
 
-Utilities should not be edited while in use, unless it is to fix a bug.
-Modifications to utilities cascade throughout the application and should be
-made with extreme care.
+Утилиты не должны быть подвержены правкам, если уже находятся в использовании,
+кроме случаев откровенных ошибок в их свойствах. Модификация утилит через каскад
+для всего приложения должна производиться с экстремальной осторожностью.
