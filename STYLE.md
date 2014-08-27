@@ -329,12 +329,12 @@ HTML атрибуты должны быть указаны в алфавитно
 
 ```css
 /**
- * Column layout with horizontal scroll.
+ * Раскладка колонок с горизонтальным скроллом.
  *
- * This creates a single row of full-height, non-wrapping columns that can
- * be browsed horizontally within their parent.
+ * Создается горизонтальный ряд, содержащий колонки, выстраивающиеся в линию
+ * без переносов. Колонки занимают всю доступную им высоту.
  *
- * Example HTML:
+ * Пример HTML:
  *
  * <div class="Grid">
  *     <div class="Grid-cell Grid-cell--3"></div>
@@ -344,12 +344,12 @@ HTML атрибуты должны быть указаны в алфавитно
  */
 
 /**
- * Grid container
+ * Grid контейнер
  *
- * Must only contain `.Grid-cell` children.
+ * Должен содержать в себе только `.Grid-cell` потомков.
  *
- * 1. Remove inter-cell whitespace
- * 2. Prevent inline-block cells wrapping
+ * 1. Удаляет внутренние отступы (строчные пробелы)
+ * 2. Предотвращает перенос блоков
  */
 
 .Grid {
@@ -359,13 +359,14 @@ HTML атрибуты должны быть указаны в алфавитно
 }
 
 /**
- * Grid cells
+ * Grid ячейки
  *
- * No explicit width by default. Extend with `.Grid-cell--n` classes.
+ * Конкретная ширина не указывается по-умолчанию. Расширяется с помощью
+ *  `.Grid-cell--n` класса.
  *
- * 1. Reset font-size inherited from `.Grid`
- * 2. Set the inter-cell spacing
- * 3. Reset white-space inherited from `.Grid`
+ * 1. Сбрасывает размер шрифта унаследованный от `.Grid`
+ * 2. Устанавливает внутренние отступы
+ * 3. Сбрасывает отступы (строчные пробелы) унаследованные от `.Grid`
  */
 
 .Grid-cell {
@@ -381,13 +382,13 @@ HTML атрибуты должны быть указаны в алфавитно
     white-space: normal; /* 3 */
 }
 
-/* Cell states */
+/* Cell состояния */
 
 .Grid-cell.is-animating {
     background-color: #fffdec;
 }
 
-/* Cell dimension modifiers
+/* Cell модификаторы размеров
    ========================================================================== */
 
 .Grid-cell--1 { width: 10%; }
@@ -396,7 +397,7 @@ HTML атрибуты должны быть указаны в алфавитно
 .Grid-cell--4 { width: 40%; }
 .Grid-cell--5 { width: 50%; }
 
-/* Cell modifiers
+/* Cell модификаторы
    ========================================================================== */
 
 .Grid-cell--detail,

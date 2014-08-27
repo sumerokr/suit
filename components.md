@@ -47,7 +47,7 @@ SUIT CSS помогает частично изолировать CSS, испо�
 должен иметь следующий CSS, где каждый селектор начинается с `MyComponent`.
 
 ```css
-/** @define MyComponent */
+/* MyComponent */
 
 .MyComponent { /* ... */ }
 .MyComponent--large { /* ... */ }
@@ -117,14 +117,14 @@ SUIT CSS помогает частично изолировать CSS, испо�
     /* ... */
 }
 
-/* Attaches to a nested component */
+/* Прикрепляется ко вложенному компоненту */
 
 .Excerpt-button {
     display: inline-block;
     margin-top: 20px;
 }
 
-/* Wraps a nested component */
+/* Оборачивает вложенный компонент */
 
 .Excerpt-wrapButton {
     display: inline-block;
